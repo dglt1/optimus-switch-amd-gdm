@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#optimus-switch (LightDM) uninstall script.
+#optimus-switch-amd-gdm uninstall script.
 
 if [ "$(id -u)" != "0" ]; then
    echo "This script must be run as root" 1>&2
@@ -12,7 +12,6 @@ echo 'Removing optimus-switch'
 rm -rf /usr/local/bin/set-amd.sh
 rm -rf /usr/local/bin/set-nvidia.sh
 rm -rf /usr/local/bin/optimus.sh
-rm -rf /usr/share/sddm/scripts/Xsetup
 rm -rf /etc/switch
 
 systemctl disable disable-nvidia.service
@@ -26,6 +25,7 @@ rm -rf /etc/modules-load.d/99-nvidia.conf
 rm -rf /etc/X11/xorg.conf.d/99-amd.conf
 rm -rf /etc/modprobe.d/99-amd.conf
 rm -rf /etc/modules-load.d/99-amd.conf
+rm -rf /usr/local/share/optimus.desktop
 
 sleep 1
 echo 'optimus-switch is now uninstalled'
